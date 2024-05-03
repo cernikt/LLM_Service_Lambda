@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  CC_Final_Lambda
+
+  Sample SAM Template for CC_Final_Lambda
+
+Globals:
+  Function:
+    Timeout: 50
+    MemorySize: 128
+
+Resources:
+  HitLLMFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: hit_llm/
+      Handler: app.hit_llm
+      Runtime: python3.12
+      Environment:
+        Variables:
+          OPENAI_API_KEY: "my-api-key"
+      Architectures:
+      - x86_64
