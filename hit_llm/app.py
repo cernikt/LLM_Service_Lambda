@@ -27,7 +27,7 @@ def hit_llm(event, context):
     if not model or not prompt:
         return {
             'statusCode': 400,
-            'text': 'Missing required data in the event argument.'
+            'body': 'Missing required data in the event argument.'
         }
     
     # Generate completion using OpenAI client
@@ -39,5 +39,5 @@ def hit_llm(event, context):
     # print(response)
     return {
         'statusCode': 200,
-        'text': response.choices[0].message.content
+        'body': response.choices[0].message.content
     }
